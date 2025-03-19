@@ -1,0 +1,151 @@
+/* 와이드 pc */
+.videoBox { width:100%; height:100%; overflow:hidden; position:absolute } 
+#imgBG { position:fixed; /*고정=>fixed/ 스크롤처리=>absolute */
+ left:50%; top:50%; /*오른쪽, 아래에 여백을 두지않고 꽉차게 표시*/
+ width:auto; min-width:100%; /*동영상 너비를 꽉차게*/
+ height:auto; min-height:100%; /*동영상 높이를 꽉차게*/
+ transform:translateX(-50%) translateY(-50%); z-index:-100; } 
+
+#content { width:100%; margin:0; position: relative; } 
+section { max-width: 2000px; margin: 0 auto; padding: 100px; background: rgba(255,255,255,.7); } 
+section h4 { display: inline-block; font-size: 2.5rem; color: #333; text-transform: uppercase; position: relative; font-family: "jejuhallasan"; margin-bottom: 25px; } 
+section h4::after { content: ''; display: block; width: 0; height: 5px; position: absolute; left: 0%; bottom: -20%; background: none repeat scroll 0 0 transparent; background: #ed8b2f; transition: width 0.4s ease 0s; } 
+section:hover h4::after { content: ''; width: 100%; height: 5px; background: #ed8b2f; position: absolute; left: 0; bottom: -20%; } 
+section.dark { background: rgba(0, 0, 0, .9); } 
+section.dark h4 { color: #fff; } 
+section.dark .sub_tit { color: #ccc; } 
+
+/* sub03 - activity */
+section img { width: 100%; } 
+.type02 { width: 100%; margin: 0 auto; padding: 100px; color: #fff; } 
+section strong { font-size: 1.5rem; margin-bottom: 10px; line-height: 2.5rem; } 
+.type02 p { font-size: 1.1rem; line-height: 1.6rem; } 
+
+.type02 img { border-radius: 20px; } 
+
+.type02 .con_top { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 80px; } 
+.type02 .con_top .con1 { width: 48%; display: flex; justify-content: space-between; gap: 15px; } 
+.type02 .con_top .con2 { width: 50%; } 
+.type02 .con_bot { display: flex; justify-content: space-between; gap: 20px; } 
+.type02 .con_bot .con1 { width: 55%; } 
+.type02 .con_bot .con2 { width: 45%; } 
+
+
+.type01 { width: 100%; padding: 100px; margin: 0 auto; background: #fff; } 
+ 
+ .type01>h4 { margin-bottom: 25px; text-align: center; } 
+ .type01 p { font-size: 1.1rem; line-height: 1.5rem; } 
+ .type01>p { margin-bottom: 100px; } 
+ 
+ .type01 .gridBox { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; grid-gap:15px; grid-template-areas: 
+ 'a a b b'
+ 'c c d e'
+ 'c c f f'; } 
+ 
+ .type01 .gridBox .con1 { grid-area: a; } 
+ .type01 .gridBox .img1 { grid-area: b; } 
+ .type01 .gridBox .img2 { grid-area: c; } 
+ .type01 .gridBox .img3 { grid-area: d; } 
+ .type01 .gridBox .img4 { grid-area: e; } 
+ .type01 .gridBox .con2 { grid-area: f; } 
+ 
+ .type01 .gridBox li img { border-radius: 20px; width: 100%; } 
+ 
+ /* side tabs */
+ @keyframes menuAni { 
+ 0% { transform: translateX(0); } 
+ 100% { transform: translateX(100%); } 
+ }
+
+#menu { position: fixed; left: 0; top: 50%; color: #fff; z-index: 100; transform: translate(-100%, 50%); } 
+#menu .ani { animation: menuAni 0.5s ease-out forwards; } 
+#menu li { transform: translateX(-100%); } 
+#menu li:first-of-type { border-top: 1px solid #fff; } 
+#menu li a { font-size: 1.1rem; text-align: right; padding: 7px; color: #999; position: relative; transition: all 0.3s ease-out; text-transform: uppercase;} 
+#menu li.on a,
+#menu li:hover a { background: rgb(16 102 199 / 80%); border-radius: 0 20px 20px 0; font-weight: 400; font-size: 1.3rem; color: #fff; } 
+#menu li a::before { content: ""; display: block; width: 100%; height: 1px; position: absolute; left: 0; bottom: 0; background: #fff; } 
+
+/* 일반 pc */
+@media screen and (max-width:1280px) { section { padding: 100px 50px; } 
+
+
+ .type02 { padding: 100px 70px; } 
+ .type02 .con_top { align-items: center; margin-bottom: 50px; } 
+ .type02 .con1 div:nth-of-type(1) { display: none; } 
+
+ .type02 .con_bot { align-items: center; flex-direction: column-reverse; } 
+ .type02 .con_bot .con1 { width: 100%; } 
+ .type02 .con_bot .con2 { width: 100%; } 
+ }
+
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {section h4::after { width: 100%; } 
+
+.type02 { padding: 100px 50px; } 
+.type02 h4 { font-size: 1.8rem; margin-bottom: 20px; line-height: 2.3rem; } 
+.type02 p { font-size: 1rem; line-height: 1.3rem; } 
+ .type01 { padding: 100px 50px; } 
+ .type01 strong { font-size: 1.8rem; margin-bottom: 20px; line-height: 2.3rem; } 
+ .type01 p { font-size: 1rem; line-height: 1.3rem; } 
+ }
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) { section { padding: 100px 10px; } 
+
+ .type02 { padding: 100px 30px; } 
+ .type02 h3 { font-size: 2.5rem; } 
+ 
+ .type02 .con_top { flex-wrap: wrap; flex-direction: column; width: 100%; align-items: center; } 
+ .type02 .con_top .con1 { width: 100%; gap: 0px; } 
+ .type02 .con_top .con1 div { width: 100%; } 
+ .type02 .con_top .con2 { width: 100%; } 
+
+ .type01 { padding: 100px 30px; } 
+ .type01 h3 { font-size: 2.5rem; } 
+ /* .type01 .gridBox { grid-template-columns: repeat(3, 1fr); grid-template-areas: 
+ 'a a b'
+ 'c d e'
+ 'f f f'; } */
+ .type01 .gridBox { grid-template-columns: 1fr; grid-template-areas: 
+ 'a'
+ 'c'
+ 'e'
+ 'f'; } 
+ .type01 .gridBox .img1 { display: none; } 
+ .type01 .gridBox .img3 { display: none; } 
+ 
+ /* .type01 .gridBox .con1 { grid-area: a; } 
+ .type01 .gridBox .img1 { grid-area: b; } 
+ .type01 .gridBox .img2 { grid-area: c; } 
+ .type01 .gridBox .img3 { grid-area: d; } 
+ .type01 .gridBox .img4 { grid-area: e; } 
+ .type01 .gridBox .con2 { grid-area: f; } */}
+
+/* 모바일 */
+@media screen and (max-width:640px){
+ #wrap { min-width:320px; } 
+section { padding: 50px 20px; } 
+
+
+.type02 { padding: 100px 20px; } 
+.type02 h3 { font-size: 2.3rem; margin-bottom: 30px; } 
+.type02 h4 { font-size: 1.5rem; line-height: 2rem; } 
+
+.type01 { padding: 100px 20px; } 
+.type01 h3 { font-size: 2.3rem; margin-bottom: 30px; } 
+.type01 h4 { font-size: 1.5rem; line-height: 2rem; } 
+.type01 .gridBox { grid-template-columns: 1fr; grid-template-areas: 
+ 'a'
+ 'b'
+ 'c'
+ 'd'; } 
+
+.type01 .gridBox .con1 { grid-area: b; margin-bottom: 50px; } 
+.type01 .gridBox .img1 { display: none; } 
+.type01 .gridBox .img2 { grid-area: a; } 
+.type01 .gridBox .img3 { display: none; } 
+.type01 .gridBox .img4 { grid-area: c; } 
+.type01 .gridBox .con2 { grid-area: d; } 
+ }

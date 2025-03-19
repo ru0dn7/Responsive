@@ -1,0 +1,133 @@
+/* 와이드 pc  */	
+.videoBox{width:100%;height:100%; overflow:hidden; position:absolute}
+#imgBG{
+	position:fixed; /*고정=>fixed/ 스크롤처리=>absolute */
+   left:50%;
+   top:50%; /*오른쪽, 아래에 여백을 두지않고 꽉차게 표시*/
+   width:auto;
+   min-width:100%; /*동영상 너비를 꽉차게*/
+   height:auto;
+   min-height:100%; /*동영상 높이를 꽉차게*/
+  transform:translateX(-50%) translateY(-50%);
+   z-index:-100;
+}
+	
+#content{ width:100%; margin:0; position: relative;  }
+section { max-width: 2000px; margin: 0 auto; padding: 100px; background: rgba(255,255,255,.7); } 
+section h4 {display: inline-block; font-size: 2.5rem;   color: #333;   text-transform: uppercase;   position: relative;   font-family: "jejuhallasan";   margin-bottom: 25px;} 
+section h4::after {content: '';   display: block;   width: 0;   height: 5px;   position: absolute;   left: 0%;   bottom: -20%;   background: none repeat scroll 0 0 transparent;   background: #ed8b2f;   transition: width 0.4s ease 0s;}
+section:hover h4::after { content: ''; width: 100%; height: 5px; background: #ed8b2f; position: absolute; left: 0; bottom: -20%; } 
+
+
+/* sub01 - about jeju */
+    /* about */
+    .about {background: rgba(255, 255, 255, .8);}
+    .about>div {
+      display: grid;
+      gap: 150px 20px;
+      grid-template-areas: 
+      'a a i1 i2 i3'
+      'i4 i5 i6 b b'
+      'c c i7 i8 i9'
+      ;
+      margin-top: 150px;
+   }
+   .about >div div:not(:nth-of-type(1),:nth-of-type(2),:nth-of-type(3)) {width: auto; height: auto; position: relative; transform: perspective(900px) rotateY(-15deg) scale(.9); transform-style: preserve-3d; transition: .5s ease-out;}
+   .about >div div:not(:nth-of-type(1),:nth-of-type(2),:nth-of-type(3)):hover { transform: rotateY(0deg) scale(1);}
+   .about >div div:hover img {  filter: grayscale(0%);}
+   .about >div div:not(:nth-of-type(1),:nth-of-type(2),:nth-of-type(3)):before {display: block;content: ""; width: 100%; height: 100%; border: 10px solid rgba(26, 93, 169, .6); position: absolute;left: 0;top: 0;transition: .5s ease;box-sizing: border-box;transform: translateZ(4rem); height: var(--before-height);}
+   .about >div div:nth-of-type(5):before,
+   .about >div div:nth-of-type(7):before,
+   .about >div div:nth-of-type(11):before
+   { border: 10px solid rgba(255, 102, 0, .6);}
+   .about >div div:nth-of-type(4):before,
+   .about >div div:nth-of-type(8):before,
+   .about >div div:nth-of-type(12):before{ border: 10px solid rgba(8, 149, 98, .6);}
+   .about >div div img {  width: 100%; filter: grayscale(100%); transition: .5s ease-out; height: 100%;      object-fit: cover; object-position: center;}
+
+   .about >div div:nth-of-type(7),
+   .about >div div:nth-of-type(8),
+   .about >div div:nth-of-type(9) { transform: perspective(900px) rotateY(15deg) scale(.9);}
+   .about >div div:nth-of-type(7):hover,
+   .about >div div:nth-of-type(8):hover,
+   .about >div div:nth-of-type(9):hover { transform: rotateY(0deg) scale(1);}
+   .about >div div { text-align: justify; word-break: break-all;}
+   .about >div div strong {font-size: 2rem; display: block; margin-bottom: 20px; text-transform: uppercase; font-family: "jejuhallasan"; }
+   .about >div div p {font-size: 1.3rem;}
+   .about >div div:nth-of-type(1) {grid-area: a; padding: 30px;}
+   .about >div div:nth-of-type(2) {grid-area: b; padding: 30px;}
+   .about >div div:nth-of-type(3) {grid-area: c; padding: 30px;}
+   .about >div div:nth-of-type(4) {grid-area: i1;}
+   .about >div div:nth-of-type(5) {grid-area: i2;}
+   .about >div div:nth-of-type(6) {grid-area: i3;}
+   .about >div div:nth-of-type(7) {grid-area: i4;}
+   .about >div div:nth-of-type(8) {grid-area: i5;}
+   .about >div div:nth-of-type(9) {grid-area: i6;}
+   .about >div div:nth-of-type(10) {grid-area: i7;}
+   .about >div div:nth-of-type(11) {grid-area: i8;}
+   .about >div div:nth-of-type(12) {grid-area: i9;}
+
+
+
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+   section { padding: 100px 50px; }
+}
+
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+   section h4::after {width: 100%;}
+   
+   .about > div {
+      /* grid-template-columns: repeat(4, 1fr); */
+      gap: 100px 20px;
+      grid-template-areas:
+        "a a i1 i3"
+        "i5 i6 b b"
+        "c c i8 i9";
+    }
+    .about > div div {transform: rotateY(0deg) scale(1);}
+    .about >div div:not(:nth-of-type(1),:nth-of-type(2),:nth-of-type(3)){transform: rotateY(0deg) scale(1);}
+    .about >div div:not(:nth-of-type(1),:nth-of-type(2),:nth-of-type(3)):before {content: none;}
+    .about > div div:nth-of-type(5),
+    .about > div div:nth-of-type(7),
+    .about > div div:nth-of-type(10) {display: none;}
+    .about > div div::before {display: none;}
+    .about > div div img {filter: grayscale(0%);}
+    .about >div div:nth-of-type(1),
+    .about >div div:nth-of-type(2),
+    .about >div div:nth-of-type(3) {padding: 0;}
+    .about >div div:nth-of-type(9),
+   .about >div div:nth-of-type(11) {filter: saturate(150%);}
+	
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+   section { padding: 100px 10px; } 
+   section h4 {font-size: 1.5rem;}
+
+   .about > div {
+      margin-top: 100px;
+      gap: 20px;
+      grid-template-areas:
+      "i1 i1 i3 i3"
+      "a a a a"
+      "i5 i5 i6 i6"
+      "b b b b "
+      "i8 i8 i9 i9"
+      "c c c c";}
+      .about >div div:nth-of-type(1), .about >div div:nth-of-type(2), .about >div div:nth-of-type(3) {margin-bottom: 80px;}
+	
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+   #wrap { min-width:320px; } 
+   .about > div {gap:30px 10px; margin-top: 50px;}
+   .about >div div strong {margin-bottom: 5px; font-size: 1.5rem;}
+   .about >div div p {font-size: 1rem;}
+	.about >div div:nth-of-type(1), .about >div div:nth-of-type(2), .about >div div:nth-of-type(3) {margin-bottom: 50px;}
+}

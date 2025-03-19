@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .section{
+            width: 80%;
+            margin: 0 auto;
+            border: 5px solid #ccc;
+            padding: 1px;
+            h3{
+                font-size: 2rem;
+                padding: 10px;
+                
+                a{
+                    color: #fff;
+                    color: red;
+                    background: #999;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    padding: 10px 0;
+                    &:hover {
+                        color: #fff;
+                        background: orange;
+                    }
+                }
+                @media screen and (max-width:1024px){
+                    a{
+                        color:skyblue;
+                        background: yellow;
+                    }
+                }
+                @media screen and (max-width:640px){
+                    a{
+                        color:brown;
+                        background:skyblue;
+                    }
+                }
+            }
+            h4{
+                padding: 10px;
+                font-size:1.5rem ;
+            }
+            @media screen and (max-width:1024px){
+                h4{
+                    font-size:1.3rem ;
+                    background: pink;
+                }
+            }
+            @media screen and (max-width:640px){
+                h4{
+                    font-size:1.1rem ;
+                    background: green;
+                    color: #fff;
+                }
+            }
+            p {
+                padding: 10px;
+                text-align: justify;
+                line-height: 1.5rem;
+            }
+        }
+
+        /* @media screen and (max-width:1024px){
+            .section h4{font-size:1.3rem ;background: pink;}
+            .section h3 a{color:skyblue;background: yellow;}
+        }
+
+        @media screen and (max-width:640px){
+            .section h4{font-size:1.1rem ; background: green; color: #fff;}
+            .section h3 a{color:brown;background:skyblue;}
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="section">
+
+      <h3><a href="#">Nesting</a></h3>
+
+      <h4>css3 표준 마크업으로 Nesting이 지원됩니다.</h4>
+      <p>우리가 좋아하는 CSS 전처리기 기능 중 하나인 CSS Nesting이 이제 CSS 자체에 내장되었다. 
+        2023년 구글 크롬 브라우저를 선두로 하여 다른 브라우저들도 하나 둘 씩 지원하기 시작했다. 
+        더 이상의 선택자 노가다는 그만!</p>
+
+   </div>
+</body>
+</html>
